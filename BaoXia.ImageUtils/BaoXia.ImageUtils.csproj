@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>____服务完整名称____</Title>
+    <Version>8.2.0</Version>
+    <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AssemblyVersion>8.2.0</AssemblyVersion>
+    <FileVersion>8.2.0</FileVersion>
+    <Authors>石家庄宝匣软件科技有限公司</Authors>
+    <Company>石家庄宝匣软件科技有限公司</Company>
+    <Copyright>版权所有 © 2024 石家庄宝匣软件科技有限公司</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="BaoXia_600x600@1x.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Constants\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BaoXia.Service" Version="8.3.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.QrCode" Version="0.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BaoXia_600x600%401x.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
