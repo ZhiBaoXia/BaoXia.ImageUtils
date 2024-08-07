@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
+    <PackageId>____服务完整名称____</PackageId>
+    <Version>8.2.0</Version>
+    <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AssemblyVersion>8.2.0</AssemblyVersion>
+    <FileVersion>8.2.0</FileVersion>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <Copyright>版权所有 © 2024 石家庄宝匣软件科技有限公司</Copyright>
+    <Company>石家庄宝匣软件科技有限公司</Company>
+    <Authors>石家庄宝匣软件科技有限公司</Authors>
+    <PackageReleaseNotes>更效率</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="BaoXia_600x600@1x.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BaoXia.Constants" Version="8.0.3" />
+    <PackageReference Include="BaoXia.DataUtils" Version="8.2.0" />
+    <PackageReference Include="BaoXia.Service" Version="8.2.0" />
+    <PackageReference Include="BaoXia.Service.Cache.Client" Version="8.2.0" />
+    <PackageReference Include="BaoXia.Service.TokenManager.Client" Version="8.2.0" />
+    <PackageReference Include="BaoXia.Service.UserService.Client" Version="8.2.0" />
+    <PackageReference Include="BaoXia.Utils" Version="8.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BaoXia_600x600%401x.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
