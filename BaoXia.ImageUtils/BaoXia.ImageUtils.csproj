@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>BaoXia.ImageUtils.Test</Title>
-    <Version>8.2.0</Version>
+    <Title>BaoXia.ImageUtils</Title>
+    <Version>8.0.0</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <AssemblyVersion>8.2.0</AssemblyVersion>
@@ -15,6 +15,11 @@
     <Authors>石家庄宝匣软件科技有限公司</Authors>
     <Company>石家庄宝匣软件科技有限公司</Company>
     <Copyright>版权所有 © 2024 石家庄宝匣软件科技有限公司</Copyright>
+    <Description>宝匣软件，图象工具集。</Description>
+    <PackageProjectUrl>https://github.com/ZhiBaoXia/BaoXia.ImageUtils</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ZhiBaoXia/BaoXia.ImageUtils</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>工具;图像;二维码</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
