@@ -19,7 +19,8 @@
     <PackageProjectUrl>https://github.com/ZhiBaoXia/BaoXia.ImageUtils</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ZhiBaoXia/BaoXia.ImageUtils</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>工具;图像;二维码</PackageTags>
+    <PackageTags>图像;工具;二维码</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
