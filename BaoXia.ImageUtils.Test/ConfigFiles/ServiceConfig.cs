@@ -13,9 +13,9 @@ namespace BaoXia.ImageUtils.Test.ConfigFiles
 		#region 自身属性，服务基础参数
 
 		/// <summary>
-		/// ____服务实例名称____配置。
+		/// BxImageUtilsTest配置。
 		/// </summary>
-		public ____服务实例名称____Config? ____服务实例名称____Config { get; set; }
+		public BxImageUtilsTestConfig? BxImageUtilsTestConfig { get; set; }
 
 		/// <summary>
 		/// 服务管理员配置。

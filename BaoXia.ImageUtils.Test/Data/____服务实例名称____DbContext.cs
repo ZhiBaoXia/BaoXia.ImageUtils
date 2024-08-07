@@ -14,8 +14,8 @@ namespace BaoXia.ImageUtils.Test.Data
 	/// Update-Database -Verbose，将模型更新到数据库中并显示更新脚本，可将更新脚本复制下来在生产环境中运行。
 	/// Get-Migrations，获取已经应用的迁移。
 	/// </summary>
-	public class ____服务实例名称____DbContext
-		(DbContextOptions<____服务实例名称____DbContext> options)
+	public class BxImageUtilsTestDbContext
+		(DbContextOptions<BxImageUtilsTestDbContext> options)
 		: DbContext(options)
 	{
 		////////////////////////////////////////////////

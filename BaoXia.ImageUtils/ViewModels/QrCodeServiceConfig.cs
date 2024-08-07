@@ -1,12 +1,4 @@
-﻿using BaoXia.ImageUtils;
-using BaoXia.Utils.Extensions;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static BaoXia.ImageUtils.QRCodeImageCard;
+﻿using BaoXia.Utils.Extensions;
 
 namespace BaoXia.ImageUtils.ViewModels;
 
@@ -39,9 +31,9 @@ public class QrCodeServiceConfig
 
 	public const uint CodeColorARGBHexDefault = 0xFF000000;
 
-	public const string FileDownloadNameDefault = "qrCode";
-
 	public const string ImageTypeDefault = "png";
+
+	public const string FileDownloadNameDefault = "qrCode." + ImageTypeDefault;
 
 	public const int ImageQualityDefault = 100;
 

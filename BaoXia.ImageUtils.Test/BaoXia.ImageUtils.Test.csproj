@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
-    <PackageId>____服务完整名称____</PackageId>
+    <PackageId>BaoXia.ImageUtils.Test</PackageId>
     <Version>8.2.0</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -37,19 +37,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BaoXia.Constants" Version="8.0.3" />
-    <PackageReference Include="BaoXia.DataUtils" Version="8.2.0" />
-    <PackageReference Include="BaoXia.Service" Version="8.2.0" />
-    <PackageReference Include="BaoXia.Service.Cache.Client" Version="8.2.0" />
-    <PackageReference Include="BaoXia.Service.TokenManager.Client" Version="8.2.0" />
-    <PackageReference Include="BaoXia.Service.UserService.Client" Version="8.2.0" />
-    <PackageReference Include="BaoXia.Utils" Version="8.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+    <PackageReference Include="BaoXia.Constants" Version="8.0.6" />
+    <PackageReference Include="BaoXia.DataUtils" Version="8.3.0" />
+    <PackageReference Include="BaoXia.Service" Version="8.3.0" />
+    <PackageReference Include="BaoXia.Utils" Version="8.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaoXia.ImageUtils\BaoXia.ImageUtils.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,6 +62,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

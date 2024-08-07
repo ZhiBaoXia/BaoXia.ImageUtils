@@ -1,6 +1,6 @@
 {
         ////////////////////////////////////////////////
-        // ____服务实例名称____配置信息：
+        // BxImageUtilsTest配置信息：
         ////////////////////////////////////////////////
 
         "____服务实例名称____Config":
@@ -57,7 +57,7 @@
                 "BxTokenManagerClientConfig":
                 {
                         // 用户令牌缓存的有效时长：604800秒，一周。
-                        "UserTokenCacheLiveSeconds": null,
+                        "UserTokenCacheLiveSeconds": 0,
 
                         // 指定的服务节点Uri，例如：ws://127.0.0.1:7000
                         "ServiceUri": null,
@@ -159,7 +159,7 @@
                 // 基础服务使用后续递增的端口，如：7001 +，
                 // 业务服务使用新的IP地址段，如：8001，
                 // Api路由服务使用使用默认的“80”，“443”端口。
-                "HttpPort": "70XX，____服务的Web端口____",
+                "HttpPort": 8080,
 
                 // Https协议绑定的IP地址。
                 "HttpsIPAddress": null,
@@ -212,13 +212,13 @@
                 "ServiceInfo":
                 {
                         // 服务分组名称。
-                        "GroupName": "____服务所属分组名称____",
+                        "GroupName": "Default",
 
                         // 服务名称。
-                        "ServiceName": "____服务完整名称____",
+                        "ServiceName": "BaoXia.ImageUtils.Test",
 
                         // 服务信息描述。
-                        "Description": "____服务信息描述（中文名）____",
+                        "Description": "宝匣软件，图像工具集，测试项目。",
 
                         // 服务版本号。
                         "ServiceVersion": "1.0.0",
@@ -319,7 +319,7 @@
 
                 "ApplicationInfes":
                 [
-                        // "____客户端账号信息____",
+                        // "baoxia.service",
                         {
                                 //  客户端应用程序Id。
                                 "ApplicationIdentity": "客户端应用程序Id",

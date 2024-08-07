@@ -2,16 +2,15 @@
 using BaoXia.Constants.Models;
 using BaoXia.ImageUtils.Models;
 using BaoXia.ImageUtils.ViewModels;
-using BaoXia.Service.Attributes;
 using BaoXia.Utils;
 using BaoXia.Utils.Cache;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace BaoXia.ImageUtils.Service;
+namespace BaoXia.ImageUtils.Services;
 
-public class QrCodeService
+public class QrCodeImageCardService
 {
 	////////////////////////////////////////////////
 	// @静态常量
@@ -67,14 +66,14 @@ public class QrCodeService
 
 	#region 自身实现
 
-	public QrCodeService(Func<QrCodeServiceConfig> toGetServiceConfig)
+	public QrCodeImageCardService(Func<QrCodeServiceConfig> toGetServiceConfig)
 	{
 		ToGetServiceConfig = toGetServiceConfig;
 
 		_qrcodesCache = new(
 		async (qrCodeContent, _) =>
 		{
-			var serviceConfig = toGetServiceConfig();
+			var serviceConfig = ToGetServiceConfig();
 
 			var qrCodeDpiRatio = EnumUtil.ValueOf(
 				serviceConfig.QrCodeDpiRatioName,
@@ -118,7 +117,7 @@ public class QrCodeService
 		null,
 		() =>
 		{
-			var serviceConfig = toGetServiceConfig();
+			var serviceConfig = ToGetServiceConfig();
 			return NumberUtil.FirstGreaterZero(
 				serviceConfig.QrCodeCacheNoneReadSecondsToRemove,
 				QrCodeServiceConfig.QrCodeCacheNoneReadSecondsToRemoveDefault);
@@ -169,6 +168,7 @@ public class QrCodeService
 	public async Task<IActionResult> GetQRCodeImageIActionResultWithContentAsync(
 		string? qrCodeContent,
 		HttpResponse httpResponse,
+		bool isNeedDownloadFileResponse,
 		bool isCacheDisable)
 	{
 		var qrCodeImageCardInfo
@@ -184,7 +184,8 @@ public class QrCodeService
 
 		var resultOfCreateQRCodeImageActionResult
 			= qrCodeImageCardInfo.ImageCardInfo!.TryToActionResult(
-				httpResponse);
+				httpResponse,
+				isNeedDownloadFileResponse);
 		if (resultOfCreateQRCodeImageActionResult.IsFailed)
 		{
 			return ResultWithHttpStatusCode(

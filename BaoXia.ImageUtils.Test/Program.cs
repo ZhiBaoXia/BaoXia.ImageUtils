@@ -1,16 +1,9 @@
 ﻿using BaoXia.ImageUtils.Test.ConfigFiles;
 using BaoXia.ImageUtils.Test.Constants;
-using BaoXia.ImageUtils.Test.Data;
 using BaoXia.ImageUtils.Test.LogFiles;
 using BaoXia.Service.BxService.ViewModels;
-using BaoXia.Service.Cache.Client.Extensions;
 using BaoXia.Service.Constants;
 using BaoXia.Service.Extensions;
-using BaoXia.Service.TokenManager.Client.Constants;
-using BaoXia.Service.TokenManager.Client.Extensions;
-using BaoXia.Service.UserService.Client.Extensions;
-using BaoXia.Utils.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var appBuilder = WebApplication.CreateBuilder(args);
@@ -63,78 +56,78 @@ appBuilder.RunWithServerName(
 		////////////////////////////////////////////////
 		// 1/4，配置服务客户端：数据库服务。
 		////////////////////////////////////////////////
-		appBuilder
-		.Services
-		.AddDbContext<____服务实例名称____DbContext>(options =>
-		{
-			var dbConnectionString
-			= Config.Service.____服务实例名称____Config?.DbConnectionString
-			?? throw new InvalidOperationException(
-				"配置数据库服务失败，没有在配置文件中配置“数据库连接字符串”（DbConnectionString）。");
-			// !!!
-			options.UseSqlServer(
-				dbConnectionString,
-				sqlServerOptionsAction: sqlOptions =>
-				{
-					// !!!⚠ 设置数据库操作的超时时间为30秒， ⚠!!!
-					// !!!⚠ 放宽对数据库的操作超时时间限制，  ⚠!!!
-					// !!!⚠ 提升数据保存队列的可靠性。             ⚠!!!
-					sqlOptions.CommandTimeout(30);
-				});
-			// !!!
-		});
+		//appBuilder
+		//.Services
+		//.AddDbContext<BxImageUtilsTestDbContext>(options =>
+		//{
+		//	var dbConnectionString
+		//	= Config.Service.BxImageUtilsTestConfig?.DbConnectionString
+		//	?? throw new InvalidOperationException(
+		//		"配置数据库服务失败，没有在配置文件中配置“数据库连接字符串”（DbConnectionString）。");
+		//	// !!!
+		//	options.UseSqlServer(
+		//		dbConnectionString,
+		//		sqlServerOptionsAction: sqlOptions =>
+		//		{
+		//			// !!!⚠ 设置数据库操作的超时时间为30秒， ⚠!!!
+		//			// !!!⚠ 放宽对数据库的操作超时时间限制，  ⚠!!!
+		//			// !!!⚠ 提升数据保存队列的可靠性。             ⚠!!!
+		//			sqlOptions.CommandTimeout(30);
+		//		});
+		//	// !!!
+		//});
 
 		////////////////////////////////////////////////
 		// 2/4，配置服务客户端：缓存服务。
 		////////////////////////////////////////////////
-		var iLogFile_Logs = new ILogFile(Log.Logs);
-		var iLogFile_Exception = new ILogFile(Log.Exception);
-		var iLogFile_Warning = new ILogFile(Log.Warning);
-		var iLogFile_BxService = new ILogFile(Log.BxService);
-		appBuilder.ConfigureBxCacheService(
-			Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
-			() =>
-			{
-				return Config.Service.____服务实例名称____Config?.BxCacheServiceClientConfig;
-			},
-			iLogFile_Logs,
-			iLogFile_Exception,
-			iLogFile_Warning,
-			iLogFile_BxService);
+		//var iLogFile_Logs = new ILogFile(Log.Logs);
+		//var iLogFile_Exception = new ILogFile(Log.Exception);
+		//var iLogFile_Warning = new ILogFile(Log.Warning);
+		//var iLogFile_BxService = new ILogFile(Log.BxService);
+		//appBuilder.ConfigureBxCacheService(
+		//	Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
+		//	() =>
+		//	{
+		//		return Config.Service.BxImageUtilsTestConfig?.BxCacheServiceClientConfig;
+		//	},
+		//	iLogFile_Logs,
+		//	iLogFile_Exception,
+		//	iLogFile_Warning,
+		//	iLogFile_BxService);
 
 		////////////////////////////////////////////////
 		// 3/4，配置服务客户端：令牌服务。
 		////////////////////////////////////////////////
-		appBuilder.ConfigureBxTokenManager(
-			Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
-			//
-			TokenCheckType.NeedCheckTokenDefault_ElseNotNeedCheckAttribute,
-			true,
-			null,
-			//
-			() =>
-			{
-				return Config.Service.____服务实例名称____Config?.BxTokenManagerClientConfig;
-			},
-			iLogFile_Logs,
-			iLogFile_Exception,
-			iLogFile_Warning,
-			iLogFile_BxService);
+		//appBuilder.ConfigureBxTokenManager(
+		//	Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
+		//	//
+		//	TokenCheckType.NeedCheckTokenDefault_ElseNotNeedCheckAttribute,
+		//	true,
+		//	null,
+		//	//
+		//	() =>
+		//	{
+		//		return Config.Service.BxImageUtilsTestConfig?.BxTokenManagerClientConfig;
+		//	},
+		//	iLogFile_Logs,
+		//	iLogFile_Exception,
+		//	iLogFile_Warning,
+		//	iLogFile_BxService);
 
 		////////////////////////////////////////////////
 		// 4/4，配置服务客户端：用户服务。
 		////////////////////////////////////////////////
-		appBuilder.ConfigureBxUserService(
-			Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
-			//
-			() =>
-			{
-				return Config.Service.____服务实例名称____Config?.BxUserServiceClientConfig;
-			},
-			iLogFile_Logs,
-			iLogFile_Exception,
-			iLogFile_Warning,
-			iLogFile_BxService);
+		//appBuilder.ConfigureBxUserService(
+		//	Config.Service.BxServiceConfig?.ServiceInfo?.GroupName,
+		//	//
+		//	() =>
+		//	{
+		//		return Config.Service.BxImageUtilsTestConfig?.BxUserServiceClientConfig;
+		//	},
+		//	iLogFile_Logs,
+		//	iLogFile_Exception,
+		//	iLogFile_Warning,
+		//	iLogFile_BxService);
 
 		return appBuilder;
 	});

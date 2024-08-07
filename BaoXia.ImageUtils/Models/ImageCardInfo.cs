@@ -51,7 +51,8 @@ public class ImageCardInfo
 	#region 自身实现
 
 	public ToActionResultResult TryToActionResult(
-		HttpResponse httpResponse)
+		HttpResponse httpResponse,
+		bool isNeedFileDownloadResponse)
 	{
 		httpResponse.Headers["BaoXia-ImageUtil-Seconds-To-GetData"] = SecondsToGetData.ToString("F3");
 		httpResponse.Headers["BaoXia-ImageUtil-Seconds-To-RenderCard"] = SecondsToRenderCard.ToString("F3");
@@ -108,6 +109,7 @@ public class ImageCardInfo
 			imageCardBytes,
 			imageCardMIME);
 		// !!!
+		if (isNeedFileDownloadResponse)
 		{
 			fileContentResult.FileDownloadName = FileDownloadName;
 		}

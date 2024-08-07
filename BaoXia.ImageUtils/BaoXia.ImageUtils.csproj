@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>____服务完整名称____</Title>
+    <Title>BaoXia.ImageUtils.Test</Title>
     <Version>8.2.0</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

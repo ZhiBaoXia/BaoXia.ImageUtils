@@ -39,8 +39,8 @@ namespace BaoXia.ImageUtils.Test.ConfigFiles
 		#region 实现“DbSetMemoryCacheServiceConfig”
 
 		public DbOperationConfig DbOperationConfig
-			=> Config.Service.____服务实例名称____Config?.DbOperationConfig
-			?? ____服务实例名称____Config.DbOperationConfigDefault;
+			=> Config.Service.BxImageUtilsTestConfig?.DbOperationConfig
+			?? BxImageUtilsTestConfig.DbOperationConfigDefault;
 
 		private static readonly ILogFile _dbSetSaverLogFile = new(Log.DbSetSaver);
 
