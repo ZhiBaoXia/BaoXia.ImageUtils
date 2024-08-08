@@ -81,15 +81,16 @@ public class QrCodeImageCardService
 			int qrCodeSize = NumberUtil.FirstGreaterZero(
 				serviceConfig.QrCodeSize,
 				QrCodeServiceConfig.QrCodeSizeDefault);
-			uint backgroundColorARGBHex = NumberUtil.FirstGreaterZero(
+			uint backgroundColorARGBHex = Utils.NumberUtil.UIntFromHexString(
 				serviceConfig.BackgroundColorARGBHex,
-				QrCodeServiceConfig.BackgroundColorARGBHexDefault);
+				0xFFFFFFFF);
+			
 			var eccLevel = EnumUtil.ValueOf(
 				serviceConfig.EccLevelName,
 				QrCodeServiceConfig.EccLevelDefault);
-			uint codeColorARGBHex = NumberUtil.FirstGreaterZero(
+			uint codeColorARGBHex = Utils.NumberUtil.UIntFromHexString(
 				serviceConfig.CodeColorARGBHex,
-				QrCodeServiceConfig.CodeColorARGBHexDefault);
+				0xFF000000);
 			string fileDownloadName = StringUtil.FirstNotEmpty(
 				serviceConfig.FileDownloadName,
 				QrCodeServiceConfig.FileDownloadNameDefault)!;

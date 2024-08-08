@@ -14,9 +14,9 @@ public class QrCodeImageCardService
 			QrCodeCacheNoneReadSecondsToRemove = 1800.0,
 			QrCodeDpiRatioName = QRCodeImageCard.DPIRatio.PC.Name()!,
 			QrCodeSize = 400,
-			BackgroundColorARGBHex = 0xFFFFFFFF,
+			BackgroundColorARGBHex = "0xFFFF0000",
 			EccLevelName = QRCodeImageCard.ErrorCorrectionCodeLevel.High.Name()!,
-			CodeColorARGBHex = 0xFF000000,
+			CodeColorARGBHex = "0xFFFFFF00",
 			FileDownloadName = "qrCodeImage",
 			ImageType = "png",
 			ImageQuality = 100
