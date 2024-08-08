@@ -7,7 +7,7 @@
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>BaoXia.ImageUtils</Title>
-    <Version>8.0.0</Version>
+    <Version>8.0.1</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <AssemblyVersion>8.2.0</AssemblyVersion>

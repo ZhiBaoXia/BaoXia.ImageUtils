@@ -206,7 +206,8 @@ public class QRCodeImageCard(
 					qrImage,
 					qrCodeFrame,
 					backgroundColor,
-					codeColor);
+					codeColor,
+					SKColors.Transparent);
 				////////////////////////////////////////////////
 				return canvasHeightMax;
 			});

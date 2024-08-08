@@ -20,7 +20,7 @@ public class QrCodeServiceConfig
 
 	public const int QrCodeSizeDefault = QRCodeImageCard.SizeDefault;
 
-	public const uint BackgroundColorARGBHexDefault = 0xFFFFFFFF;
+	public const string BackgroundColorARGBHexDefault = "0xFFFFFFFF";
 
 
 	public const QRCodeImageCard.ErrorCorrectionCodeLevel EccLevelDefault = QRCodeImageCard.ErrorCorrectionCodeLevel.High;
@@ -29,7 +29,7 @@ public class QrCodeServiceConfig
 
 
 
-	public const uint CodeColorARGBHexDefault = 0xFF000000;
+	public const string CodeColorARGBHexDefault = "0xFF000000";
 
 	public const string ImageTypeDefault = "png";
 
@@ -50,15 +50,13 @@ public class QrCodeServiceConfig
 
 	public string QrCodeDpiRatioName { get; set; } = QrCodeDpiRatioNameDefault;
 
-	public QRCodeImageCard.DPIRatio QrCodeDpiRatio { get; set; } = QRCodeImageCard.DPIRatio.PC;
-
 	public int QrCodeSize { get; set; } = QrCodeSizeDefault;
 
-	public uint BackgroundColorARGBHex { get; set; } = BackgroundColorARGBHexDefault;
+	public string BackgroundColorARGBHex { get; set; } = BackgroundColorARGBHexDefault;
 
 	public string EccLevelName { get; set; } = EccLevelNameDefault;
 
-	public uint CodeColorARGBHex { get; set; } = CodeColorARGBHexDefault;
+	public string CodeColorARGBHex { get; set; } = CodeColorARGBHexDefault;
 
 	public string FileDownloadName { get; set; } = FileDownloadNameDefault;
 
