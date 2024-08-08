@@ -1,5 +1,6 @@
 ﻿using BaoXia.ImageUtils.Extensions;
 using BaoXia.ImageUtils.Models;
+using BaoXia.Utils.Cache;
 using BaoXia.Utils.Interfaces;
 using SkiaSharp;
 
@@ -62,11 +63,11 @@ public class ImageCard
 	protected readonly HttpClient _httpClient;
 
 
-	protected Utils.Cache.ObjectPool<SKSurface> _canvasSurfaces;
+	protected ObjectPool<SKSurface> _canvasSurfaces;
 
-	protected Utils.Cache.ItemsCacheAsync<string, SKBitmap, object?> _imageWithUrlKey;
+	protected ItemsCacheAsync<string, SKBitmap, object?> _imageWithUrlKey;
 
-	protected Utils.Cache.ItemsCache<string, SKTypeface?, object?> _fontFamiliesWithFontFileName;
+	protected ItemsCache<string, SKTypeface?, object?> _fontFamiliesWithFontFileName;
 
 	#endregion
 
@@ -180,7 +181,7 @@ public class ImageCard
 	protected SKBitmap ImageFileNamed(string imageFileName)
 	{
 		var imageFilePath
-			= Utils.Environment.ApplicationDirectoryPath
+			= BaoXia.Utils.Environment.ApplicationDirectoryPath
 			+ _resourceImagesDirectoryPath ?? string.Empty
 			+ imageFileName;
 		var skImage = SKImage.FromEncodedData(imageFilePath);
