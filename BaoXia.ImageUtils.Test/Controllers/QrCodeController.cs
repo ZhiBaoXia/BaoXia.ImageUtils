@@ -1,6 +1,4 @@
-﻿using BaoXia.ImageUtils.Services;
-using BaoXia.ImageUtils.Test.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BaoXia.ImageUtils.Test.Controllers;
 

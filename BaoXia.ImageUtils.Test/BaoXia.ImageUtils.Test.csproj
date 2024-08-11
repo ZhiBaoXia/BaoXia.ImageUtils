@@ -38,9 +38,8 @@
 
   <ItemGroup>
     <PackageReference Include="BaoXia.Constants" Version="8.0.6" />
-    <PackageReference Include="BaoXia.DataUtils" Version="8.3.0" />
-    <PackageReference Include="BaoXia.Service" Version="8.3.0" />
-    <PackageReference Include="BaoXia.Utils" Version="8.3.0" />
+    <PackageReference Include="BaoXia.Service" Version="8.3.4" />
+    <PackageReference Include="BaoXia.Utils" Version="8.3.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
@@ -65,6 +64,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
