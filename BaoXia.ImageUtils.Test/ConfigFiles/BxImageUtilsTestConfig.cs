@@ -1,5 +1,4 @@
-﻿using BaoXia.DataUtils.ViewModels;
-
+﻿
 namespace BaoXia.ImageUtils.Test.ConfigFiles;
 
 /// <summary>
@@ -7,26 +6,6 @@ namespace BaoXia.ImageUtils.Test.ConfigFiles;
 /// </summary>
 public class BxImageUtilsTestConfig
 {
-
-	////////////////////////////////////////////////
-	// @静态常量
-	////////////////////////////////////////////////
-
-	#region 静态常量
-
-	public readonly static DbOperationConfig DbOperationConfigDefault = new()
-	{
-		LoadThreadsCount = 10,
-		LoadPageSize = 1000,
-
-		SaveThreadsCount = 10,
-		SaveTaskProcessSecondsMaxThreshold = 1.0,
-		SaveTaskQueueLengthMaxThreshold = 10
-	};
-
-	#endregion
-
-
 	////////////////////////////////////////////////
 	// @自身属性
 	////////////////////////////////////////////////
@@ -47,7 +26,7 @@ public class BxImageUtilsTestConfig
 	/// <summary>
 	/// 1.b/4，配置服务客户端：数据库，操作配置。
 	/// </summary>
-	public DbOperationConfig? DbOperationConfig { get; set; }
+	// public DbOperationConfig? DbOperationConfig { get; set; }
 
 	///// <summary>
 	///// 2/4，配置服务客户端：缓存服务。
