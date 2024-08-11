@@ -84,7 +84,7 @@ public class QrCodeImageCardService
 			uint backgroundColorARGBHex = Utils.NumberUtil.UIntFromHexString(
 				serviceConfig.BackgroundColorARGBHex,
 				0xFFFFFFFF);
-			
+
 			var eccLevel = EnumUtil.ValueOf(
 				serviceConfig.EccLevelName,
 				QrCodeServiceConfig.EccLevelDefault);
