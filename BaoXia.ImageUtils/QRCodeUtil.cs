@@ -51,6 +51,7 @@ public class QRCodeUtil
 			return qrCodeCardPool;
 		},
 		null,
+		null,
 		() => _qrCodePoolCacheValidSeconds);
 
 	#endregion

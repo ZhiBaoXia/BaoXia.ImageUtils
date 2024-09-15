@@ -116,6 +116,7 @@ public class QrCodeImageCardService
 			return qrCodeImageCardInfo;
 		},
 		null,
+		null,
 		() =>
 		{
 			var serviceConfig = ToGetServiceConfig();
