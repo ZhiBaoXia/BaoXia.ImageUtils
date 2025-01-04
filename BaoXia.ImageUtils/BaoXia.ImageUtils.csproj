@@ -7,11 +7,11 @@
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>BaoXia.ImageUtils</Title>
-    <Version>9.0.0</Version>
+    <Version>9.0.1</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <AssemblyVersion>9.0.0</AssemblyVersion>
-    <FileVersion>9.0.0</FileVersion>
+    <AssemblyVersion>9.0.1</AssemblyVersion>
+    <FileVersion>9.0.1</FileVersion>
     <Authors>石家庄宝匣软件科技有限公司</Authors>
     <Company>石家庄宝匣软件科技有限公司</Company>
     <Copyright>版权所有 © 2025 石家庄宝匣软件科技有限公司</Copyright>
@@ -45,8 +45,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BaoXia.Constants" Version="9.0.0" />
-    <PackageReference Include="BaoXia.Utils" Version="9.0.0" />
+    <PackageReference Include="BaoXia.Constants" Version="9.0.1" />
+    <PackageReference Include="BaoXia.Utils" Version="9.0.1" />
     <PackageReference Include="SkiaSharp" Version="3.116.1" />
     <PackageReference Include="SkiaSharp.QrCode" Version="0.7.0" />
   </ItemGroup>
