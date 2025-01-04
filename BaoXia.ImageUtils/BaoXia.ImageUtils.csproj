@@ -47,7 +47,7 @@
   <ItemGroup>
     <PackageReference Include="BaoXia.Constants" Version="9.0.0" />
     <PackageReference Include="BaoXia.Utils" Version="9.0.0" />
-    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
     <PackageReference Include="SkiaSharp.QrCode" Version="0.7.0" />
   </ItemGroup>
 
