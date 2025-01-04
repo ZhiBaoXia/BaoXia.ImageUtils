@@ -40,7 +40,7 @@ public static class SKCanvasExtension
 	    string? text,
 	    float left,
 	    float top,
-	    SKFont? skFont,
+	    SKFont skFont,
 	    SKPaint skPaint)
 	{
 		if (string.IsNullOrEmpty(text))
@@ -51,36 +51,22 @@ public static class SKCanvasExtension
 		var textDrawX = left;
 		var textDrawY = top;
 
-		if (skFont != null)
-		{
-			// !!!
-			textDrawY += skFont.Metrics.CapHeight;
-			// !!!
-			canvas.DrawText(
-			    text,
-			    textDrawX,
-			    textDrawY,
-			    skFont,
-			    skPaint);
-		}
-		else
-		{
-			// !!!
-			textDrawY += skPaint.FontMetrics.CapHeight;
-			// !!!
-			canvas.DrawText(
-			    text,
-			    textDrawX,
-			    textDrawY,
-			    skPaint);
-		}
+		// !!!
+		textDrawY += skFont.Metrics.CapHeight;
+		// !!!
+		canvas.DrawText(
+		    text,
+		    textDrawX,
+		    textDrawY,
+		    skFont,
+		    skPaint);
 	}
 
 	public static void DrawTextToLeftTop(
 	    this SKCanvas canvas,
 	    string? text,
 	    SKPoint point,
-	    SKFont? skFont,
+	    SKFont skFont,
 	    SKPaint skPaint)
 	{
 		SKCanvasExtension.DrawTextToLeftTop(
@@ -92,59 +78,26 @@ public static class SKCanvasExtension
 			skPaint);
 	}
 
-	public static void DrawTextToLeftTop(
-	    this SKCanvas canvas,
-	    string? text,
-	    float left,
-	    float top,
-	    SKPaint skPaint)
-	{
-		canvas.DrawTextToLeftTop(
-			text,
-			left,
-			top,
-			null,
-			skPaint);
-	}
-
-	public static void DrawTextToLeftTop(
-	    this SKCanvas canvas,
-	    string? text,
-	    SKPoint point,
-	    SKPaint skPaint)
-	{
-		SKCanvasExtension.DrawTextToLeftTop(
-			canvas,
-			text,
-			point.X,
-			point.Y,
-			skPaint);
-	}
 
 	public static SKRect DrawTextToLeftTop(
 	    this SKCanvas canvas,
 	    string? text,
 	    float left,
 	    float top,
-	    SKPaint skPaintDefault,
-	    SKTypeface font,
-	    float fontSize,
+	    SKFont skFont,
+	    SKPaint skPaint,
 	    uint textColorARGBHex)
 	{
 		var textLocation = new SKPoint(left, top);
-		var skPaint = skPaintDefault.Clone();
-		{
-			skPaint.Typeface = font;
-			skPaint.TextSize = fontSize;
-			skPaint.Color = new SKColor(textColorARGBHex);
-		}
-		var textBounds = new SKRect();
-		skPaint.MeasureText(text, ref textBounds);
+		skPaint = skPaint.Clone();
+		skPaint.Color = new SKColor(textColorARGBHex);
+		skFont.MeasureText(text, out var textBounds);
 		// !!!!
 		canvas.DrawTextToLeftTop(
 			text,
 			textLocation,
-			skPaint);
+			skFont,
+			(SKPaint)skPaint);
 		// !!!
 		return SKRect.Create(
 			textLocation.X,
@@ -160,7 +113,8 @@ public static class SKCanvasExtension
 		float lineHeight,
 		SKTextAlign textHorizontalAlign,
 		SKTextAlign textVerticalAlign,
-		SKPaint skPaint)
+		SKPaint skPaint,
+		SKFont skFont)
 	{
 		var textBounds = SKRect.Create(
 				rect.Left,
@@ -176,27 +130,30 @@ public static class SKCanvasExtension
 		var lineTop = textBounds.Top;
 		var lineBottom = lineTop;
 		var lineWidth = textBounds.Width;
-		var lineTextHeight = skPaint.FontMetrics.XHeight;
+		var lineTextHeight = skFont.Metrics.XHeight;
 		if (lineHeight < 0)
 		{
-			lineHeight = lineTextHeight + skPaint.FontSpacing;
+			lineHeight = lineTextHeight + skFont.Spacing;
 		}
 
 		var textWillDraw = text;
 		while (textWillDraw?.Length > 0)
 		{
-			var lineTextLength = skPaint.BreakText(
-				textWillDraw,
-				lineWidth,
-				out var lineTextWidth,
-				out var lineText);
+			var lineTextLength
+				= skFont.BreakText(
+					textWillDraw,
+					lineWidth,
+					out var lineTextWidth);
 			var lineTextLeft = lineLeft;
+			string lineText;
 			if (lineTextLength > 0)
 			{
+				lineText = textWillDraw.Left(lineTextLength);
 				textWillDraw = textWillDraw.Right(textWillDraw.Length - (int)lineTextLength);
 			}
 			else
 			{
+				lineText = textWillDraw;
 				textWillDraw = null;
 			}
 
@@ -221,6 +178,7 @@ public static class SKCanvasExtension
 				lineText,
 				lineTextLeft,
 				lineTextTop,
+				skFont,
 				skPaint);
 			// !!!
 			lineBottom = lineTop + lineHeight;
