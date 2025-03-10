@@ -7,11 +7,11 @@
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>BaoXia.ImageUtils</Title>
-    <Version>9.0.2</Version>
+    <Version>9.0.3</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <AssemblyVersion>9.0.2</AssemblyVersion>
-    <FileVersion>9.0.2</FileVersion>
+    <AssemblyVersion>9.0.3</AssemblyVersion>
+    <FileVersion>9.0.3</FileVersion>
     <Authors>石家庄宝匣软件科技有限公司</Authors>
     <Company>石家庄宝匣软件科技有限公司</Company>
     <Copyright>版权所有 © 2025 石家庄宝匣软件科技有限公司</Copyright>
