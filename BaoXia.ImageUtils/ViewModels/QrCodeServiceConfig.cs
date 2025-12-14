@@ -4,65 +4,65 @@ namespace BaoXia.ImageUtils.ViewModels;
 
 public class QrCodeServiceConfig
 {
-        ////////////////////////////////////////////////
-        // @静态常量
-        ////////////////////////////////////////////////
+	////////////////////////////////////////////////
+	// @静态常量
+	////////////////////////////////////////////////
 
-        #region 静态常量
+	#region 静态常量
 
-        public const double QrCodeCacheNoneReadSecondsToRemoveDefault = 1800.0;
-
-
-        public const QRCodeImageCard.DPIRatio QrCodeDpiRatioDefault = QRCodeImageCard.DPIRatio.PC;
-
-        public static readonly string QrCodeDpiRatioNameDefault = QrCodeDpiRatioDefault.Name()!;
+	public const double QrCodeCacheNoneReadSecondsToRemoveDefault = 1800.0;
 
 
-        public const int QrCodeSizeDefault = QRCodeImageCard.SizeDefault;
+	public const QRCodeImageCard.DPIRatio QrCodeDpiRatioDefault = QRCodeImageCard.DPIRatio.PC;
 
-        public const string BackgroundColorARGBHexDefault = "0xFFFFFFFF";
-
-
-        public const QRCodeImageCard.ErrorCorrectionCodeLevel EccLevelDefault = QRCodeImageCard.ErrorCorrectionCodeLevel.High;
-
-        public static readonly string EccLevelNameDefault = EccLevelDefault.Name()!;
+	public static readonly string QrCodeDpiRatioNameDefault = QrCodeDpiRatioDefault.Name()!;
 
 
+	public const int QrCodeSizeDefault = QRCodeImageCard.SizeDefault;
 
-        public const string CodeColorARGBHexDefault = "0xFF000000";
-
-        public const string ImageTypeDefault = "png";
-
-        public const string FileDownloadNameDefault = "qrCode." + ImageTypeDefault;
-
-        public const int ImageQualityDefault = 100;
-
-        #endregion
+	public const string BackgroundColorARGBHexDefault = "0xFFFFFFFF";
 
 
-        ////////////////////////////////////////////////
-        // @自身属性
-        ////////////////////////////////////////////////
+	public const QRCodeImageCard.ErrorCorrectionCodeLevel EccLevelDefault = QRCodeImageCard.ErrorCorrectionCodeLevel.High;
 
-        #region 自身属性
+	public static readonly string EccLevelNameDefault = EccLevelDefault.Name()!;
 
-        public double QrCodeCacheNoneReadSecondsToRemove { get; set; } = QrCodeCacheNoneReadSecondsToRemoveDefault;
 
-        public string QrCodeDpiRatioName { get; set; } = QrCodeDpiRatioNameDefault;
 
-        public int QrCodeSize { get; set; } = QrCodeSizeDefault;
+	public const string CodeColorARGBHexDefault = "0xFF000000";
 
-        public string BackgroundColorARGBHex { get; set; } = BackgroundColorARGBHexDefault;
+	public const string ImageTypeDefault = "png";
 
-        public string EccLevelName { get; set; } = EccLevelNameDefault;
+	public const string FileDownloadNameDefault = "qrCode." + ImageTypeDefault;
 
-        public string CodeColorARGBHex { get; set; } = CodeColorARGBHexDefault;
+	public const int ImageQualityDefault = 100;
 
-        public string FileDownloadName { get; set; } = FileDownloadNameDefault;
+	#endregion
 
-        public string ImageType { get; set; } = ImageTypeDefault;
 
-        public int ImageQuality { get; set; } = ImageQualityDefault;
+	////////////////////////////////////////////////
+	// @自身属性
+	////////////////////////////////////////////////
 
-        #endregion
+	#region 自身属性
+
+	public double QrCodeCacheNoneReadSecondsToRemove { get; set; } = QrCodeCacheNoneReadSecondsToRemoveDefault;
+
+	public string QrCodeDpiRatioName { get; set; } = QrCodeDpiRatioNameDefault;
+
+	public int QrCodeSize { get; set; } = QrCodeSizeDefault;
+
+	public string BackgroundColorARGBHex { get; set; } = BackgroundColorARGBHexDefault;
+
+	public string EccLevelName { get; set; } = EccLevelNameDefault;
+
+	public string CodeColorARGBHex { get; set; } = CodeColorARGBHexDefault;
+
+	public string FileDownloadName { get; set; } = FileDownloadNameDefault;
+
+	public string ImageType { get; set; } = ImageTypeDefault;
+
+	public int ImageQuality { get; set; } = ImageQualityDefault;
+
+	#endregion
 }
