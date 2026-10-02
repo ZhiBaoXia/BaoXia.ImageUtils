@@ -54,12 +54,7 @@ public static class SKCanvasExtension
 		// !!!
 		textDrawY += skFont.Metrics.CapHeight;
 		// !!!
-		canvas.DrawText(
-		    text,
-		    textDrawX,
-		    textDrawY,
-		    skFont,
-		    skPaint);
+		canvas.DrawText(text, textDrawX, textDrawY, SKTextAlign.Left, skFont, skPaint);
 	}
 
 	public static void DrawTextToLeftTop(
@@ -70,12 +65,12 @@ public static class SKCanvasExtension
 	    SKPaint skPaint)
 	{
 		SKCanvasExtension.DrawTextToLeftTop(
-			canvas,
-			text,
-			point.X,
-			point.Y,
-			skFont,
-			skPaint);
+		    canvas,
+		    text,
+		    point.X,
+		    point.Y,
+		    skFont,
+		    skPaint);
 	}
 
 
@@ -94,33 +89,33 @@ public static class SKCanvasExtension
 		skFont.MeasureText(text, out var textBounds);
 		// !!!!
 		canvas.DrawTextToLeftTop(
-			text,
-			textLocation,
-			skFont,
-			(SKPaint)skPaint);
+		    text,
+		    textLocation,
+		    skFont,
+		    (SKPaint)skPaint);
 		// !!!
 		return SKRect.Create(
-			textLocation.X,
-			textLocation.Y,
-			textBounds.Width,
-			textBounds.Height);
+		    textLocation.X,
+		    textLocation.Y,
+		    textBounds.Width,
+		    textBounds.Height);
 	}
 
 	public static SKRect DrawTextInRect(
-		this SKCanvas canvas,
-		string? text,
-		SKRect rect,
-		float lineHeight,
-		SKTextAlign textHorizontalAlign,
-		SKTextAlign textVerticalAlign,
-		SKPaint skPaint,
-		SKFont skFont)
+	    this SKCanvas canvas,
+	    string? text,
+	    SKRect rect,
+	    float lineHeight,
+	    SKTextAlign textHorizontalAlign,
+	    SKTextAlign textVerticalAlign,
+	    SKPaint skPaint,
+	    SKFont skFont)
 	{
 		var textBounds = SKRect.Create(
-				rect.Left,
-				rect.Top,
-				rect.Width,
-				0);
+			rect.Left,
+			rect.Top,
+			rect.Width,
+			0);
 		if (string.IsNullOrEmpty(text))
 		{
 			return textBounds;
@@ -140,10 +135,10 @@ public static class SKCanvasExtension
 		while (textWillDraw?.Length > 0)
 		{
 			var lineTextLength
-				= skFont.BreakText(
-					textWillDraw,
-					lineWidth,
-					out var lineTextWidth);
+			    = skFont.BreakText(
+				textWillDraw,
+				lineWidth,
+				out var lineTextWidth);
 			var lineTextLeft = lineLeft;
 			string lineText;
 			if (lineTextLength > 0)
@@ -175,11 +170,11 @@ public static class SKCanvasExtension
 				lineTextTop = lineTop + lineHeight - lineTextHeight;
 			}
 			canvas.DrawTextToLeftTop(
-				lineText,
-				lineTextLeft,
-				lineTextTop,
-				skFont,
-				skPaint);
+			    lineText,
+			    lineTextLeft,
+			    lineTextTop,
+			    skFont,
+			    skPaint);
 			// !!!
 			lineBottom = lineTop + lineHeight;
 			lineTop = lineBottom;

@@ -9,8 +9,8 @@ public class NumberUtil
 	#region 类方法
 
 	public static uint UIntFromHexString(
-		string? hexString,
-		uint defaultValue = 0x0)
+	    string? hexString,
+	    uint defaultValue = 0x0)
 	{
 		if (string.IsNullOrWhiteSpace(hexString))
 		{
@@ -28,9 +28,9 @@ public class NumberUtil
 		}
 
 		if (uint.TryParse(hexString,
-			System.Globalization.NumberStyles.HexNumber,
-			null,
-			out uint hexNumber))
+		    System.Globalization.NumberStyles.HexNumber,
+		    null,
+		    out uint hexNumber))
 		{
 			return hexNumber;
 		}

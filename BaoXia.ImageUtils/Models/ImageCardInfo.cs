@@ -51,8 +51,8 @@ public class ImageCardInfo
 	#region 自身实现
 
 	public ToActionResultResult TryToActionResult(
-		HttpResponse httpResponse,
-		bool isNeedFileDownloadResponse)
+	    HttpResponse httpResponse,
+	    bool isNeedFileDownloadResponse)
 	{
 		httpResponse.Headers["BaoXia-ImageUtil-Seconds-To-GetData"] = SecondsToGetData.ToString("F3");
 		httpResponse.Headers["BaoXia-ImageUtil-Seconds-To-RenderCard"] = SecondsToRenderCard.ToString("F3");
@@ -87,7 +87,7 @@ public class ImageCardInfo
 			imageCardMIME = "image/webp";
 		}
 		else if ("jpg".EqualsIgnoreCase(imageType)
-			|| "jpeg".EqualsIgnoreCase(imageType))
+		    || "jpeg".EqualsIgnoreCase(imageType))
 		{
 			imageCardBytes = imageCard.Encode(SKEncodedImageFormat.Jpeg, imageQuality).ToArray();
 			imageCardMIME = "image/jpg";
@@ -106,8 +106,8 @@ public class ImageCardInfo
 
 		// !!!
 		var fileContentResult = new FileContentResult(
-			imageCardBytes,
-			imageCardMIME);
+		    imageCardBytes,
+		    imageCardMIME);
 		// !!!
 		if (isNeedFileDownloadResponse)
 		{

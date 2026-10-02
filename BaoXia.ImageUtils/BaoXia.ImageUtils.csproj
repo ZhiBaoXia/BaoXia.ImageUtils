@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ApplicationIcon>BaoXia_600x600@1x.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>BaoXia.ImageUtils</Title>
-    <Version>9.0.5</Version>
+    <Version>10.0.0</Version>
     <PackageIcon>BaoXia_600x600@1x.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <AssemblyVersion>9.0.5</AssemblyVersion>
-    <FileVersion>9.0.5</FileVersion>
+    <AssemblyVersion>10.0.0</AssemblyVersion>
+    <FileVersion>10.0.0</FileVersion>
     <Authors>石家庄宝匣软件科技有限公司</Authors>
     <Company>石家庄宝匣软件科技有限公司</Company>
     <Copyright>版权所有 © 2025 石家庄宝匣软件科技有限公司</Copyright>
@@ -22,6 +22,10 @@
     <PackageTags>图像;工具;二维码</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".editorconfig" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="BaoXia_600x600@1x.ico" />
@@ -45,10 +49,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BaoXia.Constants" Version="9.0.3" />
-    <PackageReference Include="BaoXia.Utils" Version="9.0.14" />
-    <PackageReference Include="SkiaSharp" Version="3.119.0" />
-    <PackageReference Include="SkiaSharp.QrCode" Version="0.7.0" />
+    <PackageReference Include="SkiaSharp" Version="4.153.1" />
+    <PackageReference Include="SkiaSharp.QrCode" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--NuGetFlow slot ee0cd49479514a5f8f06e3b477a9befe-->
+    <!--NuGetFlow slot 47c2a377249b42a6871053e0d281d373-->
   </ItemGroup>
 
   <ItemGroup>
@@ -58,4 +65,10 @@
     </None>
   </ItemGroup>
 
+
+  <PropertyGroup Label="NuGetFlow.Versions"><Version>10.0.0</Version><PackageVersion>10.0.0</PackageVersion><AssemblyVersion>10.0.0.0</AssemblyVersion><FileVersion>10.0.0.0</FileVersion></PropertyGroup>
+
+  <ItemGroup Label="NuGetFlow:ee0cd49479514a5f8f06e3b477a9befe"><PackageReference Include="BaoXia.Constants" Version="10.0.0" /></ItemGroup>
+
+  <ItemGroup Label="NuGetFlow:47c2a377249b42a6871053e0d281d373"><PackageReference Include="BaoXia.Utils" Version="10.0.0" /></ItemGroup>
 </Project>

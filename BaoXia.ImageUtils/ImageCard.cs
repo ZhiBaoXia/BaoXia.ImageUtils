@@ -5,6 +5,7 @@ using BaoXia.Utils.Interfaces;
 using SkiaSharp;
 
 namespace BaoXia.ImageUtils;
+
 public class ImageCard
 {
 	////////////////////////////////////////////////
@@ -93,23 +94,23 @@ public class ImageCard
 	#region 自身实现
 
 	public ImageCard(
-		ILogFile? debugLogFile,
-		string? resourceImagesDirectoryPath,
-		//
-		int canvasWidth = CanvasWidthDefault,
-		int canvasHeightMax = CanvasHeightMaxDefault,
-		//
-		float canvasDPIDefault = CanvasDPIZoomRatioDefault,
-		int canvasDPIZoomRatio = CanvasDPIZoomRatioDefault,
-		//
-		int canvasPaddingLeft = CanvasPaddingLeftDefault,
-		int canvasPaddingTop = CanvasPaddingTopDefault,
-		int canvasPaddingRight = CanvasPaddingRightDefault,
-		int canvasPaddingBottom = CanvasPaddingBottomDefault,
-		//
-		float textRenderOffsetY = TextRenderOffsetYDefault,
-		//
-		double imageFileCacheValidSecondsDefault = ImageFileCacheValidSecondsDefault)
+	    ILogFile? debugLogFile,
+	    string? resourceImagesDirectoryPath,
+	    //
+	    int canvasWidth = CanvasWidthDefault,
+	    int canvasHeightMax = CanvasHeightMaxDefault,
+	    //
+	    float canvasDPIDefault = CanvasDPIZoomRatioDefault,
+	    int canvasDPIZoomRatio = CanvasDPIZoomRatioDefault,
+	    //
+	    int canvasPaddingLeft = CanvasPaddingLeftDefault,
+	    int canvasPaddingTop = CanvasPaddingTopDefault,
+	    int canvasPaddingRight = CanvasPaddingRightDefault,
+	    int canvasPaddingBottom = CanvasPaddingBottomDefault,
+	    //
+	    float textRenderOffsetY = TextRenderOffsetYDefault,
+	    //
+	    double imageFileCacheValidSecondsDefault = ImageFileCacheValidSecondsDefault)
 	{
 		_debugLogFile = debugLogFile;
 
@@ -127,10 +128,10 @@ public class ImageCard
 		_canvasResolutionY = _canvasResolutionX;
 
 		_canvasPadding = new(
-			canvasPaddingLeft,
-			canvasPaddingTop,
-			canvasPaddingRight,
-			canvasPaddingBottom);
+		    canvasPaddingLeft,
+		    canvasPaddingTop,
+		    canvasPaddingRight,
+		    canvasPaddingBottom);
 
 		_textRenderOffsetY = textRenderOffsetY;
 
@@ -139,52 +140,52 @@ public class ImageCard
 		_httpClient = new();
 
 		_canvasSurfaces
-			= new(() =>
-			{
-				var canvasInfo = new SKImageInfo(
-			    width: _canvasWidthInPixel,
-			    height: _canvasHeightInPixel,
-			    colorType: SKColorType.Rgba8888,
-			    alphaType: SKAlphaType.Premul);
-				var canvasSurface
-		    = SKSurface.Create(canvasInfo);
-				var canvas = canvasSurface.Canvas;
-				{
-					canvas.Scale(_canvasDPIZoomRatio);
-				}
-				return canvasSurface;
-			});
+		    = new(() =>
+		    {
+			    var canvasInfo = new SKImageInfo(
+		    width: _canvasWidthInPixel,
+		    height: _canvasHeightInPixel,
+		    colorType: SKColorType.Rgba8888,
+		    alphaType: SKAlphaType.Premul);
+			    var canvasSurface
+		= SKSurface.Create(canvasInfo);
+			    var canvas = canvasSurface.Canvas;
+			    {
+				    canvas.Scale(_canvasDPIZoomRatio);
+			    }
+			    return canvasSurface;
+		    });
 
 		_imageWithUrlKey = new(
-			async (imageUrl, _) =>
-			{
-				var image = await DownloadImageFromAsync(imageUrl);
-				{ }
-				return image;
-			},
-			null,
-			null,
-			() => imageFileCacheValidSecondsDefault,
-			null);
+		    async (imageUrl, _) =>
+		    {
+			    var image = await DownloadImageFromAsync(imageUrl);
+			    { }
+			    return image;
+		    },
+		    null,
+		    null,
+		    () => imageFileCacheValidSecondsDefault,
+		    null);
 
 		_fontFamiliesWithFontFileName = new(
-			(fontFileName, _) =>
-			{
-				var fontFamily = FontNamed(fontFileName);
-				{ }
-				return fontFamily;
-			},
-			null,
-			null,
-			null);
+		    (fontFileName, _) =>
+		    {
+			    var fontFamily = FontNamed(fontFileName);
+			    { }
+			    return fontFamily;
+		    },
+		    null,
+		    null,
+		    null);
 	}
 
 	protected SKBitmap ImageFileNamed(string imageFileName)
 	{
 		var imageFilePath
-			= BaoXia.Utils.Environment.ApplicationDirectoryPath
-			+ _resourceImagesDirectoryPath ?? string.Empty
-			+ imageFileName;
+		    = BaoXia.Utils.Environment.ApplicationDirectoryPath
+		    + _resourceImagesDirectoryPath ?? string.Empty
+		    + imageFileName;
 		var skImage = SKImage.FromEncodedData(imageFilePath);
 		var skBitmap = SKBitmap.FromImage(skImage);
 		{ }
@@ -199,14 +200,14 @@ public class ImageCard
 	protected async Task<SKBitmap?> DownloadImageFromAsync(string? imageUrl)
 	{
 		if (imageUrl == null
-			|| imageUrl.Length < 1)
+		    || imageUrl.Length < 1)
 		{
 			return null;
 		}
 
 		var imageBytes = await _httpClient.GetByteArrayAsync(imageUrl);
 		if (imageBytes == null
-			|| imageBytes.Length < 1)
+		    || imageBytes.Length < 1)
 		{
 			return null;
 		}
@@ -218,29 +219,29 @@ public class ImageCard
 	}
 
 	public async Task<ImageCardInfo?> ToImageCardInfoAsync<DataType, GetDataParamType>(
-		string? imageType,
-		int imageQuality,
-		string? fileDownloadName,
-		GetDataParamType? getDataParam,
-		Func<HttpClient,
-			Func<string?, Task<SKBitmap?>>,
-			GetDataParamType?,
-			Task<DataType?>> toGetDataAsync,
-		Func<DataType?,
-			SKCanvas,
-			//
-			int,
-			int,
-			//
-			Padding,
-			//
-			float,
-			//
-			HttpClient,
-			Func<string, SKBitmap>,
-			Func<uint, SKColor>,
-			Func<string, SKTypeface?>,
-			float> toRenderCard)
+	    string? imageType,
+	    int imageQuality,
+	    string? fileDownloadName,
+	    GetDataParamType? getDataParam,
+	    Func<HttpClient,
+		Func<string?, Task<SKBitmap?>>,
+		GetDataParamType?,
+		Task<DataType?>> toGetDataAsync,
+	    Func<DataType?,
+		SKCanvas,
+		//
+		int,
+		int,
+		//
+		Padding,
+		//
+		float,
+		//
+		HttpClient,
+		Func<string, SKBitmap>,
+		Func<uint, SKColor>,
+		Func<string, SKTypeface?>,
+		float> toRenderCard)
 	{
 		var imageCardInfo = new ImageCardInfo()
 		{
@@ -253,9 +254,9 @@ public class ImageCard
 		var beginTimeOfGetData = DateTime.Now;
 		{
 			data = await toGetDataAsync(
-				_httpClient,
-				DownloadImageFromAsync,
-				getDataParam);
+			    _httpClient,
+			    DownloadImageFromAsync,
+			    getDataParam);
 		}
 		var endTimeOfGetData = DateTime.Now;
 		imageCardInfo.SecondsToGetData = (endTimeOfGetData - beginTimeOfGetData).TotalSeconds;
@@ -270,24 +271,24 @@ public class ImageCard
 			}
 			var canvas = canvasSurface.Canvas;
 			var cardFinalImageHeight
-				= toRenderCard != null
-				? toRenderCard(
-					data,
-					//
-					canvasSurface.Canvas,
-					//
-					_canvasWidth,
-					_canvasHeightMax,
-					//
-					_canvasPadding,
-					//
-					_textRenderOffsetY,
-					 //
-					 _httpClient,
-					 ImageFileNamed,
-					 ColorFromArgbHex,
-					 FontNamed)
-				: 0;
+			    = toRenderCard != null
+			    ? toRenderCard(
+				data,
+				//
+				canvasSurface.Canvas,
+				//
+				_canvasWidth,
+				_canvasHeightMax,
+				//
+				_canvasPadding,
+				//
+				_textRenderOffsetY,
+				 //
+				 _httpClient,
+				 ImageFileNamed,
+				 ColorFromArgbHex,
+				 FontNamed)
+			    : 0;
 			if (cardFinalImageHeight <= 0)
 			{
 				_debugLogFile?.Logs(this, "生成图片卡片的高度为“0”。", null);
@@ -297,10 +298,10 @@ public class ImageCard
 
 			var canvasBounds = canvas.BoundsI();
 			var cardImageFrame = new SKRectI(
-				0,
-				0,
-				canvasBounds.Width,
-				(int)(cardFinalImageHeight * _canvasDPIZoomRatio));
+			    0,
+			    0,
+			    canvasBounds.Width,
+			    (int)(cardFinalImageHeight * _canvasDPIZoomRatio));
 
 			var imageCard = canvasSurface.Snapshot(cardImageFrame);
 			{ }

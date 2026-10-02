@@ -46,8 +46,8 @@ public class QrCodeImageCardService
 	#region 类方法
 
 	static ContentResult ResultWithHttpStatusCode(
-		HttpStatusCode httpStatusCode,
-		string httpBody)
+	    HttpStatusCode httpStatusCode,
+	    string httpBody)
 	{
 		return new ContentResult()
 		{
@@ -76,42 +76,42 @@ public class QrCodeImageCardService
 			var serviceConfig = ToGetServiceConfig();
 
 			var qrCodeDpiRatio = EnumUtil.ValueOf(
-				serviceConfig.QrCodeDpiRatioName,
-				QrCodeServiceConfig.QrCodeDpiRatioDefault);
+		    serviceConfig.QrCodeDpiRatioName,
+		    QrCodeServiceConfig.QrCodeDpiRatioDefault);
 			int qrCodeSize = NumberUtil.FirstGreaterZero(
-				serviceConfig.QrCodeSize,
-				QrCodeServiceConfig.QrCodeSizeDefault);
+		    serviceConfig.QrCodeSize,
+		    QrCodeServiceConfig.QrCodeSizeDefault);
 			uint backgroundColorARGBHex = Utils.NumberUtil.UIntFromHexString(
-				serviceConfig.BackgroundColorARGBHex,
-				0xFFFFFFFF);
+		    serviceConfig.BackgroundColorARGBHex,
+		    0xFFFFFFFF);
 
 			var eccLevel = EnumUtil.ValueOf(
-				serviceConfig.EccLevelName,
-				QrCodeServiceConfig.EccLevelDefault);
+		    serviceConfig.EccLevelName,
+		    QrCodeServiceConfig.EccLevelDefault);
 			uint codeColorARGBHex = Utils.NumberUtil.UIntFromHexString(
-				serviceConfig.CodeColorARGBHex,
-				0xFF000000);
+		    serviceConfig.CodeColorARGBHex,
+		    0xFF000000);
 			string fileDownloadName = StringUtil.FirstNotEmpty(
-				serviceConfig.FileDownloadName,
-				QrCodeServiceConfig.FileDownloadNameDefault)!;
+		    serviceConfig.FileDownloadName,
+		    QrCodeServiceConfig.FileDownloadNameDefault)!;
 			string imageType = StringUtil.FirstNotEmpty(
-				serviceConfig.ImageType,
-				QrCodeServiceConfig.ImageTypeDefault)!;
+		    serviceConfig.ImageType,
+		    QrCodeServiceConfig.ImageTypeDefault)!;
 			var imageQuality = NumberUtil.FirstGreaterZero(
-				serviceConfig.ImageQuality,
-				QrCodeServiceConfig.ImageQualityDefault);
+		    serviceConfig.ImageQuality,
+		    QrCodeServiceConfig.ImageQualityDefault);
 
 			var qrCodeImageCardInfo
-			= await QRCodeUtil.CreateQRCodeImageWithUrlAsync(
-				qrCodeContent,
-				qrCodeDpiRatio,
-				qrCodeSize,
-				backgroundColorARGBHex,
-				eccLevel,
-				codeColorARGBHex,
-				fileDownloadName,
-				imageType,
-				imageQuality);
+		= await QRCodeUtil.CreateQRCodeImageWithUrlAsync(
+		    qrCodeContent,
+		    qrCodeDpiRatio,
+		    qrCodeSize,
+		    backgroundColorARGBHex,
+		    eccLevel,
+		    codeColorARGBHex,
+		    fileDownloadName,
+		    imageType,
+		    imageQuality);
 			{ }
 			return qrCodeImageCardInfo;
 		},
@@ -121,14 +121,14 @@ public class QrCodeImageCardService
 		{
 			var serviceConfig = ToGetServiceConfig();
 			return NumberUtil.FirstGreaterZero(
-				serviceConfig.QrCodeCacheNoneReadSecondsToRemove,
-				QrCodeServiceConfig.QrCodeCacheNoneReadSecondsToRemoveDefault);
+		    serviceConfig.QrCodeCacheNoneReadSecondsToRemove,
+		    QrCodeServiceConfig.QrCodeCacheNoneReadSecondsToRemoveDefault);
 		});
 	}
 
 	public async Task<CreateQRCodeImageCardInfoResult> GetQrCodeImageCardInfoWithContentAsync(
-		string? qrCodeContent,
-		bool isCacheDisable)
+	    string? qrCodeContent,
+	    bool isCacheDisable)
 	{
 		if (string.IsNullOrEmpty(qrCodeContent))
 		{
@@ -143,14 +143,14 @@ public class QrCodeImageCardService
 		if (isCacheDisable)
 		{
 			qrCodeImageCardInfo = await _qrcodesCache.UpdateAsync(
-				qrCodeContent,
-				null);
+			    qrCodeContent,
+			    null);
 		}
 		else
 		{
 			qrCodeImageCardInfo = await _qrcodesCache.GetAsync(
-				qrCodeContent,
-				null);
+			    qrCodeContent,
+			    null);
 		}
 
 		if (qrCodeImageCardInfo == null)
@@ -168,31 +168,31 @@ public class QrCodeImageCardService
 	}
 
 	public async Task<IActionResult> GetQRCodeImageIActionResultWithContentAsync(
-		string? qrCodeContent,
-		HttpResponse httpResponse,
-		bool isNeedDownloadFileResponse,
-		bool isCacheDisable)
+	    string? qrCodeContent,
+	    HttpResponse httpResponse,
+	    bool isNeedDownloadFileResponse,
+	    bool isCacheDisable)
 	{
 		var qrCodeImageCardInfo
-			= await GetQrCodeImageCardInfoWithContentAsync(
-				qrCodeContent,
-				isCacheDisable);
+		    = await GetQrCodeImageCardInfoWithContentAsync(
+			qrCodeContent,
+			isCacheDisable);
 		if (qrCodeImageCardInfo.IsFailed)
 		{
 			return ResultWithHttpStatusCode(
-				HttpStatusCode.ServiceUnavailable,
-				$"生成二维码失败，无法生成二维码图片信息：{qrCodeImageCardInfo.ErrorDescription}。");
+			    HttpStatusCode.ServiceUnavailable,
+			    $"生成二维码失败，无法生成二维码图片信息：{qrCodeImageCardInfo.ErrorDescription}。");
 		}
 
 		var resultOfCreateQRCodeImageActionResult
-			= qrCodeImageCardInfo.ImageCardInfo!.TryToActionResult(
-				httpResponse,
-				isNeedDownloadFileResponse);
+		    = qrCodeImageCardInfo.ImageCardInfo!.TryToActionResult(
+			httpResponse,
+			isNeedDownloadFileResponse);
 		if (resultOfCreateQRCodeImageActionResult.IsFailed)
 		{
 			return ResultWithHttpStatusCode(
-				HttpStatusCode.ServiceUnavailable,
-				$"生成二维码失败，无法将二维码图片转为响应结果：{resultOfCreateQRCodeImageActionResult.ErrorDescription}。");
+			    HttpStatusCode.ServiceUnavailable,
+			    $"生成二维码失败，无法将二维码图片转为响应结果：{resultOfCreateQRCodeImageActionResult.ErrorDescription}。");
 		}
 		// !!!
 		return resultOfCreateQRCodeImageActionResult.ActionResult!;
