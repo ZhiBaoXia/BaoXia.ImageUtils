@@ -49,13 +49,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="4.151.1" />
-    <PackageReference Include="SkiaSharp.QrCode" Version="1.1.1" />
+    <PackageReference Include="SkiaSharp" Version="4.153.1" />
+    <PackageReference Include="SkiaSharp.QrCode" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BaoXia.Constants\BaoXia.Constants\BaoXia.Constants.csproj" />
-    <ProjectReference Include="..\..\BaoXia.Utils\BaoXia.Utils\BaoXia.Utils.csproj" />
+    <!--NuGetFlow slot ee0cd49479514a5f8f06e3b477a9befe-->
+    <!--NuGetFlow slot 47c2a377249b42a6871053e0d281d373-->
   </ItemGroup>
 
   <ItemGroup>
@@ -67,4 +67,8 @@
 
 
   <PropertyGroup Label="NuGetFlow.Versions"><Version>10.0.0</Version><PackageVersion>10.0.0</PackageVersion><AssemblyVersion>10.0.0.0</AssemblyVersion><FileVersion>10.0.0.0</FileVersion></PropertyGroup>
+
+  <ItemGroup Label="NuGetFlow:ee0cd49479514a5f8f06e3b477a9befe"><PackageReference Include="BaoXia.Constants" Version="10.0.0" /></ItemGroup>
+
+  <ItemGroup Label="NuGetFlow:47c2a377249b42a6871053e0d281d373"><PackageReference Include="BaoXia.Utils" Version="10.0.0" /></ItemGroup>
 </Project>
