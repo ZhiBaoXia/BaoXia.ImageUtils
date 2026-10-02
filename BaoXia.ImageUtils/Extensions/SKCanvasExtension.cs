@@ -54,12 +54,7 @@ public static class SKCanvasExtension
 		// !!!
 		textDrawY += skFont.Metrics.CapHeight;
 		// !!!
-		canvas.DrawText(
-		    text,
-		    textDrawX,
-		    textDrawY,
-		    skFont,
-		    skPaint);
+		canvas.DrawText(text, textDrawX, textDrawY, SKTextAlign.Left, skFont, skPaint);
 	}
 
 	public static void DrawTextToLeftTop(
